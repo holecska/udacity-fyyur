@@ -26,7 +26,7 @@ document.getElementById('create_venue').onsubmit = function(e) {
   const heading = document.querySelector('.form-heading').innerText
   const genres = getSelectedOptions(document.getElementById('genres'));
   const image_link = document.getElementById('image_link').value;
-  const website =  document.getElementById('website').value;
+  const website =  document.getElementById('website_link').value;
   let seeking_talent
 
     if (document.getElementById('seeking_talent_Yes').checked) {

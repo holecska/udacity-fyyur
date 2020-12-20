@@ -364,6 +364,7 @@ def show_artist(artist_id):
 @app.route('/artists/<int:artist_id>/edit', methods=['GET'])
 def edit_artist(artist_id):
   artist = Artist.query.filter_by(id=artist_id).first_or_404()
+  print(artist.seeking_venue)
   form = ArtistForm(obj=artist)
 
   return render_template('forms/edit_artist.html', form=form, artist=artist)
@@ -382,8 +383,10 @@ def edit_artist_submission(artist_id):
         artist.phone = request.form['phone']
         artist.website = request.form['website']
         artist.facebook_link = request.form['facebook_link']
-
-        if (request.form['seeking_venue']) == 'on':
+        #print(request.form['seeking_venue'].value)
+        option = request.form.getlist('seeking_venue')
+        #print(option)
+        if option[0] == 'True':
            artist.seeking_venue = True
         else:
            artist.seeking_venue = False

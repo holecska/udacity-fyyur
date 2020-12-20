@@ -1,6 +1,6 @@
 from datetime import datetime
 from flask_wtf import FlaskForm
-from wtforms import StringField, SelectField, SelectMultipleField, DateTimeField
+from wtforms import StringField, SelectField, SelectMultipleField, DateTimeField, RadioField
 from wtforms.validators import DataRequired, AnyOf, URL
 
 class ShowForm(FlaskForm):
@@ -230,8 +230,8 @@ class ArtistForm(FlaskForm):
     website = StringField(
         'website', validators=[URL()]
     )
-    seeking_venue = StringField(
-        'seeking_venue', validators=[DataRequired()]
+    seeking_venue = RadioField(
+        'seeking_venue', choices=[('True','True'),('False','False')]
     )
     seeking_description = StringField(
         'seeking_description'

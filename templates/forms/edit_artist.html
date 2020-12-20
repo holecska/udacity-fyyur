@@ -42,8 +42,8 @@
       </div>
       <div class="form-group">
           <label for="seeking_venue">Seeking Venue?</label>
-          Yes <input type="radio" name="seeking_venue" { % if artist.seeking_venue % } checked { % endif %} id="seeking_venue_Yes">
-          No <input type="radio" name="seeking_venue">
+          {{ form.seeking_venue(class_ = 'form-radio', style="list-style: none;", autofocus = true) }}
+
       </div>
       <div class="form-group">
           <label for="seeking_description">Seeking Description</label>
